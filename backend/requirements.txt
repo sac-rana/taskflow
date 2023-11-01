@@ -1,4 +1,5 @@
 asgiref==3.7.2
 Django==4.2.6
 django-environ==0.11.2
+djangorestframework @ git+https://github.com/encode/django-rest-framework.git@f56b85b7dd7e4f786e0769bba6b7609d4507da83
 sqlparse==0.4.4
