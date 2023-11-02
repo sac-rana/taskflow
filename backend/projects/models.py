@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
+from rest_framework import serializers
+
 
 # Create your models here.
 class Project(models.Model):
@@ -26,3 +28,17 @@ class Task(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
+class TaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = ["title", "description", "completed", "created_at"]
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    tasks = TaskSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Project
+        fields = ["title", "description", "tasks", "completed", "created_at"]
