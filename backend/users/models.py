@@ -51,17 +51,3 @@ class Profile(models.Model):
 
     def __str__(self) -> str:
         return self.name + " " + self.user.email
-
-
-class ProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Profile
-        fields = ["name", "phone"]
-
-
-class UserSerializer(serializers.ModelSerializer):
-    profile = ProfileSerializer()
-
-    class Meta:
-        model = User
-        fields = ["email", "profile"]
