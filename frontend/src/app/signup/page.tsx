@@ -5,31 +5,46 @@ import Button from '@/components/button';
 import Link from 'next/link';
 
 const SignupPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSignup = () => {};
+  const handleSignup = async (formData: FormData) => {
+    try {
+      const res = await fetch('/api/users/registration/', {
+        method: 'POST',
+        body: JSON.stringify({
+          email: formData.get('email'),
+          password: formData.get('password'),
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <main className='my-12 flex justify-center'>
       <div className='flex flex-col items-center'>
         <h1 className='text-3xl font-bold mb-8'>Sign Up</h1>
-        <form className='flex flex-col items-center'>
+        <form action={handleSignup} className='flex flex-col items-center'>
           <input
+            name='email'
             type='email'
             placeholder='Email'
             className='border border-gray-400 rounded-lg px-4 py-2 mb-4 w-80'
-            value={email}
-            onChange={e => setEmail(e.target.value)}
           />
           <input
+            name='password'
             type='password'
             placeholder='Password'
             className='border border-gray-400 rounded-lg px-4 py-2 mb-4 w-80'
-            value={password}
-            onChange={e => setPassword(e.target.value)}
           />
-          <Button wide onClick={handleSignup}>
+          <Button wide type='submit'>
             Sign Up
           </Button>
         </form>

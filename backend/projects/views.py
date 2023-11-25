@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Project, Task, ProjectSerializer
+from .models import Project, Task
+from .serializers import ProjectSerializer
 
 from rest_framework import viewsets, permissions, mixins
 

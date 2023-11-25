@@ -1,0 +1,10 @@
+Hello {{ user_display }},
+
+Thank you for signing up for TaskFlow! To complete your registration and start using our platform, please confirm your email address by clicking the link below:
+
+{{ activate_url }}
+
+If you did not sign up for TaskFlow, please ignore this email.
+
+Best regards,
+The TaskFlow Team

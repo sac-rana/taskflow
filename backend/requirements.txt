@@ -7,7 +7,6 @@ defusedxml==0.7.1
 dj-rest-auth==5.0.1
 Django==4.2.6
 django-allauth==0.55.2
-django-cors-headers==4.3.0
 django-environ==0.11.2
 djangorestframework @ git+https://github.com/encode/django-rest-framework.git@f56b85b7dd7e4f786e0769bba6b7609d4507da83
 djangorestframework-simplejwt==5.3.0

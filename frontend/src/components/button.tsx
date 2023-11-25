@@ -1,23 +1,21 @@
-import { MouseEventHandler } from 'react';
+import { ComponentProps } from 'react';
 
 type Props = {
-  type?: 'primary' | 'secondary' | 'danger';
-  onClick?: MouseEventHandler;
-  children?: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'danger';
   wide?: boolean;
-};
+} & ComponentProps<'button'>;
 
 const Button = ({
-  type = 'primary',
+  variant = 'primary',
   wide = false,
-  onClick,
   children,
+  ...rest
 }: Props) => {
   let buttonClass = 'px-4 py-2 rounded-md font-medium';
   if (wide) {
     buttonClass += ' w-full';
   }
-  switch (type) {
+  switch (variant) {
     case 'primary':
       buttonClass += ' bg-blue-500 text-white hover:bg-blue-600';
       break;
@@ -32,7 +30,7 @@ const Button = ({
   }
 
   return (
-    <button className={buttonClass} onClick={onClick}>
+    <button className={buttonClass} {...rest}>
       {children}
     </button>
   );
