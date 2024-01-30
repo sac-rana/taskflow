@@ -1,3 +1,15 @@
 @tailwind base;
+
+@layer base {
+  input,
+  textarea {
+    @apply border-2 border-gray-700 rounded-sm p-1;
+  }
+  table th,
+  table td {
+    @apply p-2 border-2 border-black;
+  }
+}
+
 @tailwind components;
 @tailwind utilities;

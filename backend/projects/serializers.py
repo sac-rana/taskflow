@@ -6,12 +6,18 @@ from rest_framework import serializers
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = ["title", "description", "completed", "created_at"]
+        fields = ["id", "title", "description", "status", "created_at"]
 
 
 class ProjectSerializer(serializers.ModelSerializer):
-    tasks = TaskSerializer(many=True, read_only=True)
-
     class Meta:
         model = Project
-        fields = ["id", "title", "description", "tasks", "completed", "created_at"]
+        fields = [
+            "id",
+            "title",
+            "description",
+            "end_date",
+            "start_date",
+            "status",
+            "created_at",
+        ]

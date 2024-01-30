@@ -13,8 +13,7 @@ const Header = () => {
       >
         <div className='flex lg:flex-1'>
           <Link href='/' className='-m-1.5 p-1.5'>
-            <span className='sr-only'>Your Company</span>
-            <span>Taskflow</span>
+            <span className='sr-only'>Taskflow</span>
             <img
               className='h-8 w-auto'
               src='https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'

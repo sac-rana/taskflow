@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
+    "django_extensions",
     "rest_framework",
     "rest_framework.authtoken",
     "dj_rest_auth",
@@ -163,6 +164,7 @@ REST_AUTH = {
     "USE_JWT": True,
     "JWT_AUTH_COOKIE": "taskflow-auth",
     "REGISTER_SERIALIZER": "users.serializers.RegistrationSerializer",
+    "USER_DETAILS_SERIALIZER": "users.serializers.UserSerializer",
 }
 
 from datetime import timedelta

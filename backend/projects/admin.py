@@ -10,7 +10,7 @@ class TaskInline(admin.TabularInline):
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ("title", "description", "completed", "created_at")
+    list_display = ("title", "description", "status", "created_at")
 
     inlines = [TaskInline]
 

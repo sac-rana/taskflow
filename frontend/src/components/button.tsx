@@ -11,7 +11,7 @@ const Button = ({
   children,
   ...rest
 }: Props) => {
-  let buttonClass = 'px-4 py-2 rounded-md font-medium';
+  let buttonClass = `${rest.className ?? ''} px-4 py-2 rounded-md font-medium`;
   if (wide) {
     buttonClass += ' w-full';
   }
@@ -28,6 +28,8 @@ const Button = ({
     default:
       break;
   }
+
+  delete rest.className;
 
   return (
     <button className={buttonClass} {...rest}>
